@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Fredoka:wght@300..700&family=Poppins:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+/* font-family: "Fredoka", sans-serif;
+font-family: "Poppins", sans-serif;
+font-family: "Edu AU VIC WA NT Guides", cursive; */
+/* font-family: "Bowlby One", sans-serif;
+  font-weight: 400;
+  font-style: normal; */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+}
+#container{
+    height: 100vh;
+    width: 100vw;
+    background-color: #30343F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.player1 img{
+    height:50vh ;
+    width:100%;
+}
+.player2 img{
+    height:50vh ;
+    width:100%;
+    flex: 0,5,0;
+}
+#game{
+    height:90vh ;
+    width:50%;
+    background-color: #30343F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    
+}
+
+#game h1{
+    font-family:"Fredoka", sans-serif ;
+    font-size: 3rem;
+    color: #E4D9FF;
+    
+
+}
+.result{
+    font-size: 1.8rem;
+    background-color: #30343F;
+    border: none;    
+    text-align: center;
+    color: #cc0ee9;
+    font-family:"Fredoka", sans-serif;
+    
+}
+.play{
+   
+    height: 48vh;
+    width: 31vw;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    background-color: 30343F;
+
+}
+.box{
+    height:15vh;
+    width:10vw;
+    font-size: 3rem;
+    font-family: "Bowlby One", sans-serif;
+    border: none;
+    margin: 2px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+
+}
+.reset-btn{
+    font-family: "Fredoka", sans-serif;
+    height: 6vh;
+    width: 12vw;
+    background-color: #e9120e;
+    color: #E5E7E6;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #920502aa;
+}
+.reset-btn:active{
+    box-shadow: none;
+    transform: translateY(6px);
+}
