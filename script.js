@@ -52,7 +52,11 @@ if(par1!="",par2!="",par3!=""){
         });
         result.value=`Winner is ${par1}`
 
-    }}
+    }
+ else{
+  result.value=`Draw`
+}
+    
 }
 }
 let color=()=>{boxes.forEach((box)=>{
@@ -63,5 +67,6 @@ let color=()=>{boxes.forEach((box)=>{
         box.style.color="#1B98E0";
     }
 })}
+
 
 reset.addEventListener("click",enable);
