@@ -2,7 +2,7 @@ let boxes = document.querySelectorAll(".box");
 let reset = document.querySelector(".reset-btn");
 let result = document.querySelector(".result");
 let turno = true;
-let count = 0; // A counter to track the number of moves
+let count = 0;
 
 const enable = () => {
   boxes.forEach((box) => {
@@ -10,9 +10,9 @@ const enable = () => {
     box.innerText = "";
   });
   turno = true;
-  count = 0; // Reset the counter
+  count = 0; 
   result.value = "";
-  color(); // Reset colors
+  color(); 
 };
 
 const winPattern = [
@@ -34,7 +34,7 @@ const color = () => {
     if (box.innerHTML == "X") {
       box.style.color = "#1B98E0";
     }
-    // Also reset colors on a new game
+   
     if (box.innerText === "") {
         box.style.color = "";
     }
@@ -51,11 +51,10 @@ const check = () => {
       if (pos1 === pos2 && pos2 === pos3) {
         result.value = `Winner is ${pos1}`;
         boxes.forEach((box) => (box.disabled = true));
-        return; // Exit the function once a winner is found
+        return; 
       }
     }
   }
-  // Check for a draw only after checking all winning patterns
   if (count === 9) {
     result.value = `Draw`;
   }
@@ -69,11 +68,12 @@ boxes.forEach((box) => {
       box.innerHTML = "X";
     }
     box.disabled = true;
-    turno = !turno; // Toggle the turn
-    count++; // Increment the move counter
+    turno = !turno; 
+    count++; 
     color();
     check();
   });
 });
 
 reset.addEventListener("click", enable);
+
