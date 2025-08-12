@@ -12,15 +12,15 @@ body {
     background-color: #30343F;
     font-family: "Fredoka", sans-serif;
     color: #E4D9FF;
-    overflow: hidden; /* Prevents scrollbars on some devices */
-    height: 100vh;
-}
-
-main {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+main {
+    width: 100%;
 }
 
 #container {
@@ -44,21 +44,21 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-grow: 1; /* Allows the game section to take up available space */
     text-align: center;
+    flex-grow: 1; /* Allows the game section to take up available space */
     max-width: 500px; /* Limits max width for desktop */
     width: 100%;
 }
 
 #game h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
     white-space: nowrap; /* Prevents title from wrapping */
 }
 
 /* --- Result Input --- */
 .result {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: "Fredoka", sans-serif;
     background-color: transparent;
     border: none;
@@ -66,7 +66,7 @@ main {
     color: #cc0ee9;
     width: 100%;
     max-width: 250px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     outline: none;
 }
 
@@ -78,18 +78,21 @@ main {
     width: 90vw; /* Take up 90% of viewport width */
     max-width: 450px; /* Prevents it from getting too big */
     aspect-ratio: 1 / 1; /* Forces the grid to be a perfect square */
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .box {
     font-family: "Bowlby One", sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 10px;
     cursor: pointer;
     color: #E4D9FF;
     transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .box:active {
@@ -99,8 +102,8 @@ main {
 /* --- Reset Button --- */
 .reset-btn {
     font-family: "Fredoka", sans-serif;
-    font-size: 1.2rem;
-    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
     background-color: #e9120e;
     color: #E5E7E6;
     border: none;
@@ -144,11 +147,11 @@ main {
     }
     
     #game h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     .result {
-        font-size: 2rem;
+        font-size: 1.8rem;
         max-width: 300px;
     }
 
@@ -163,7 +166,7 @@ main {
     }
 
     .reset-btn {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         padding: 1rem 2rem;
     }
 }
