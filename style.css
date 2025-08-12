@@ -1,100 +1,127 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Fredoka:wght@300..700&family=Poppins:wght@100;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
-/* font-family: "Fredoka", sans-serif;
-font-family: "Poppins", sans-serif;
-font-family: "Edu AU VIC WA NT Guides", cursive; */
-/* font-family: "Bowlby One", sans-serif;
-  font-weight: 400;
-  font-style: normal; */
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
-    
 }
-#container{
+
+body {
+    background-color: #30343F;
+    font-family: "Fredoka", sans-serif;
+    overflow: hidden;
+}
+
+#container {
     height: 100vh;
     width: 100vw;
-    background-color: #30343F;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 20px;
+}
 
-}
-.player1 img{
-    height:50vh ;
-    width:100%;
-}
-.player2 img{
-    height:50vh ;
-    width:100%;
-    flex: 0,5,0;
-}
-#game{
-    height:90vh ;
-    width:50%;
-    background-color: #30343F;
+#game {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    
-    
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    height: 100%;
 }
 
-#game h1{
-    font-family:"Fredoka", sans-serif ;
+#game h1 {
     font-size: 3rem;
     color: #E4D9FF;
-    
-
+    margin-bottom: 20px;
 }
-.result{
+
+.result {
     font-size: 1.8rem;
-    background-color: #30343F;
-    border: none;    
+    background-color: transparent;
+    border: none;
     text-align: center;
     color: #cc0ee9;
-    font-family:"Fredoka", sans-serif;
-    
+    width: 100%;
+    margin-bottom: 20px;
 }
-.play{
-   
-    height: 48vh;
-    width: 31vw;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    background-color: 30343F;
 
+.play {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 450px; /* Limit the max size on large screens */
+    width: 90vw; /* Take up a large percentage of the viewport width */
+    aspect-ratio: 1 / 1; /* Keep the grid a perfect square */
+    margin-bottom: 20px;
 }
-.box{
-    height:15vh;
-    width:10vw;
-    font-size: 3rem;
+
+.box {
     font-family: "Bowlby One", sans-serif;
-    border: none;
-    margin: 2px;
-    border-radius: 15px;
+    font-size: 3rem;
     background-color: rgba(255, 255, 255, 0.1);
-    flex-shrink: 0;
-
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #E4D9FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.reset-btn{
-    font-family: "Fredoka", sans-serif;
-    height: 6vh;
-    width: 12vw;
+
+.reset-btn {
+    font-size: 1.3rem;
+    padding: 10px 20px;
     background-color: #e9120e;
     color: #E5E7E6;
     border-radius: 10px;
-    font-size: 1.3rem;
     border: none;
-    outline: none;
     cursor: pointer;
     box-shadow: 0 4px 0 #920502aa;
+    transition: all 0.1s ease;
 }
-.reset-btn:active{
+
+.reset-btn:active {
     box-shadow: none;
-    transform: translateY(6px);
+    transform: translateY(4px);
 }
+
+.player1 img, .player2 img {
+    height: 50vh;
+    width: auto;
+    display: none; /* Hide images by default */
+}
+
+/* Media Queries for tablets and larger screens */
+@media (min-width: 768px) {
+    #container {
+        justify-content: space-between;
+    }
+
+    #game {
+        flex: 1;
+        max-width: 600px;
+        height: auto;
+        padding: 0;
+    }
+
+    .player1 img, .player2 img {
+        display: block; /* Show images on larger screens */
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+/* Media Query for larger desktop screens */
+@media (min-width: 1024px) {
+    .player1 img, .player2 img {
+        max-width: 350px;
+    }
+
+    .play {
+        max-width: 500px;
+    }
+}
+
