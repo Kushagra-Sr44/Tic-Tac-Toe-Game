@@ -1,183 +1,154 @@
+/* Keep your imports */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
 
-/* --- Global and Base Styles (Mobile-First) --- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #30343F;
-    font-family: "Fredoka", sans-serif;
-    color: #E4D9FF;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden; /* Prevent horizontal scrollbar */
+  background-color: #30343F;
+  font-family: "Fredoka", sans-serif;
+  color: #E4D9FF;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-    width: 100%;
+  width: 100%;
 }
 
 #container {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically on small screens */
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    gap: 1.5rem;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
-/* --- Player Images (Hidden on Mobile) --- */
 .player1, .player2 {
-    display: none;
+  display: none;
 }
 
-/* --- Game Board Section --- */
 #game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-grow: 1; /* Allows the game section to take up available space */
-    max-width: 500px; /* Limits max width for desktop */
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
 }
 
-#game h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    white-space: nowrap; /* Prevents title from wrapping */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* --- Result Input --- */
 .result {
-    font-size: 1.2rem;
-    font-family: "Fredoka", sans-serif;
-    background-color: transparent;
-    border: none;
-    text-align: center;
-    color: #cc0ee9;
-    width: 100%;
-    max-width: 250px;
-    margin-bottom: 1rem;
-    outline: none;
+  font-size: 1.2rem;
+  font-family: "Fredoka", sans-serif;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  color: #cc0ee9;
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: 1rem;
+  outline: none;
 }
 
-/* --- Tic Tac Toe Grid --- */
 .play {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    width: 90vw; /* Take up 90% of viewport width */
-    max-width: 450px; /* Prevents it from getting too big */
-    aspect-ratio: 1 / 1; /* Forces the grid to be a perfect square */
-    margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 90vw;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 1.5rem;
 }
 
 .box {
-    font-family: "Bowlby One", sans-serif;
-    font-size: 2.5rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #E4D9FF;
-    transition: background-color 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: "Bowlby One", sans-serif;
+  font-size: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #E4D9FF;
+  transition: background-color 0.2s, transform 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box:active {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.95);
 }
 
-/* --- Reset Button --- */
+.box.winner {
+  background-color: rgba(255, 215, 0, 0.6);
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.reset-btn, .undo-btn {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1rem;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
 .reset-btn {
-    font-family: "Fredoka", sans-serif;
-    font-size: 1rem;
-    padding: 0.7rem 1.2rem;
-    background-color: #e9120e;
-    color: #E5E7E6;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 0 #920502aa;
-    transition: all 0.1s ease;
+  background-color: #e9120e;
+  color: #E5E7E6;
+  box-shadow: 0 4px 0 #920502aa;
 }
 
-.reset-btn:active {
-    box-shadow: none;
-    transform: translateY(4px);
+.undo-btn {
+  background-color: #1B98E0;
+  color: #fff;
+  box-shadow: 0 4px 0 #125b82aa;
 }
 
-/* --- Media Queries for Tablet and Desktop --- */
+.reset-btn:active, .undo-btn:active {
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+/* Tablet & Desktop */
 @media (min-width: 768px) {
-    /* Tablet and larger screens */
-    #container {
-        flex-direction: row; /* Layout elements in a row */
-        justify-content: space-between;
-        padding: 2rem;
-    }
+  #container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-    .player1, .player2 {
-        display: flex; /* Show player images */
-        justify-content: center;
-        align-items: center;
-        flex: 0 0 200px; /* Fixed size for player image containers */
-    }
-    
-    .player1 img, .player2 img {
-        height: auto;
-        width: 100%;
-        max-width: 250px;
-        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-    }
+  .player1, .player2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 200px;
+  }
 
-    #game {
-        flex-grow: 1;
-        max-width: 600px;
-    }
-    
-    #game h1 {
-        font-size: 3rem;
-    }
+  .player1 img, .player2 img {
+    max-width: 250px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  }
 
-    .result {
-        font-size: 1.8rem;
-        max-width: 300px;
-    }
-
-    .play {
-        width: 100%;
-        max-width: 500px;
-        gap: 0.8rem;
-    }
-
-    .box {
-        font-size: 4rem;
-    }
-
-    .reset-btn {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-    }
+  #game h1 { font-size: 3rem; }
+  .box { font-size: 4rem; }
 }
 
-/* --- Media Queries for Large Desktop --- */
 @media (min-width: 1200px) {
-    .player1, .player2 {
-        flex: 0 0 300px; /* Larger size for player images */
-    }
-
-    .player1 img, .player2 img {
-        max-width: 350px;
-    }
+  .player1, .player2 { flex: 0 0 300px; }
+  .player1 img, .player2 img { max-width: 350px; }
 }
