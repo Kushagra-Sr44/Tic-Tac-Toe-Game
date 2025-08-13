@@ -152,3 +152,27 @@ h1 {
   .player1, .player2 { flex: 0 0 300px; }
   .player1 img, .player2 img { max-width: 350px; }
 }
+
+.undo-btn {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1rem;
+  padding: 0.7rem 1.2rem;
+  background: linear-gradient(135deg, #1B98E0, #1177c3);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #0b4f7a;
+  transition: all 0.15s ease;
+}
+
+.undo-btn:hover {
+  background: linear-gradient(135deg, #2cb2f5, #1990d4);
+  box-shadow: 0 0 10px rgba(27, 152, 224, 0.7);
+}
+
+.undo-btn:active {
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
