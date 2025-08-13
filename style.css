@@ -1,7 +1,7 @@
-/* Keep your imports */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
 
+/* --- Global Styles --- */
 * {
   margin: 0;
   padding: 0;
@@ -60,6 +60,7 @@ h1 {
   outline: none;
 }
 
+/* --- Tic Tac Toe Grid --- */
 .play {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -93,9 +94,12 @@ h1 {
   background-color: rgba(255, 215, 0, 0.6);
 }
 
+/* --- Button Controls --- */
 .controls {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap; /* So they stack on small screens */
+  justify-content: center;
 }
 
 .reset-btn, .undo-btn {
@@ -105,27 +109,39 @@ h1 {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.1s ease;
+  transition: all 0.15s ease;
 }
 
+/* Reset Button (Red) */
 .reset-btn {
   background-color: #e9120e;
   color: #E5E7E6;
   box-shadow: 0 4px 0 #920502aa;
 }
-
-.undo-btn {
-  background-color: #1B98E0;
-  color: #fff;
-  box-shadow: 0 4px 0 #125b82aa;
+.reset-btn:hover {
+  background-color: #ff1410;
 }
-
-.reset-btn:active, .undo-btn:active {
+.reset-btn:active {
   box-shadow: none;
   transform: translateY(4px);
 }
 
-/* Tablet & Desktop */
+/* Undo Button (Blue Gradient) */
+.undo-btn {
+  background: linear-gradient(135deg, #1B98E0, #1177c3);
+  color: #fff;
+  box-shadow: 0 4px 0 #0b4f7a;
+}
+.undo-btn:hover {
+  background: linear-gradient(135deg, #2cb2f5, #1990d4);
+  box-shadow: 0 0 10px rgba(27, 152, 224, 0.7);
+}
+.undo-btn:active {
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+/* --- Tablet & Desktop --- */
 @media (min-width: 768px) {
   #container {
     flex-direction: row;
@@ -145,34 +161,14 @@ h1 {
   }
 
   #game h1 { font-size: 3rem; }
+  .result { font-size: 1.8rem; max-width: 300px; }
   .box { font-size: 4rem; }
+  .play { max-width: 500px; gap: 0.8rem; }
+  .reset-btn, .undo-btn { font-size: 1.2rem; padding: 1rem 2rem; }
 }
 
+/* --- Large Desktop --- */
 @media (min-width: 1200px) {
   .player1, .player2 { flex: 0 0 300px; }
   .player1 img, .player2 img { max-width: 350px; }
 }
-
-.undo-btn {
-  font-family: "Fredoka", sans-serif;
-  font-size: 1rem;
-  padding: 0.7rem 1.2rem;
-  background: linear-gradient(135deg, #1B98E0, #1177c3);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 4px 0 #0b4f7a;
-  transition: all 0.15s ease;
-}
-
-.undo-btn:hover {
-  background: linear-gradient(135deg, #2cb2f5, #1990d4);
-  box-shadow: 0 0 10px rgba(27, 152, 224, 0.7);
-}
-
-.undo-btn:active {
-  box-shadow: none;
-  transform: translateY(4px);
-}
-
